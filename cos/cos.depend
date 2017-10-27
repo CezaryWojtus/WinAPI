@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1509113789 source:c:\users\cezi\desktop\c++\cos\main.cpp
+	<windows.h>
+	<iostream>
+
