@@ -6,6 +6,7 @@ MSG Komunikat;
 
   LPCTSTR nazwaaaa = "botak";
 
+LPSTR dane;
 
 #define ID_ODLEGLOSC 500
 #define ID_POWIERZCHNIA 501
@@ -41,6 +42,7 @@ HWND hPrzycisk3;
 HWND hPrzycisk4;
 HWND hPrzycisk5;
 HWND hPrzycisk6;
+HWND hPrzycisk7;
 HWND hCheckbox;
 HWND hRadio1;
 HWND hRadio2;
@@ -72,11 +74,17 @@ HWND hList;
 HWND hCombo;
 
 //prototyp funkcji (dziwne rzeczy które musza być XD)
-LRESULT CALLBACK WndProc ( HWND hwnd, UINT msg
-                          ,WPARAM wParam
-                          ,LPARAM lParam);
+LRESULT CALLBACK WndProc ( HWND hwnd, UINT msg,WPARAM wParam,LPARAM lParam);
 
-void funkcja(HWND handle);
+void poletekstowe (HWND handle)
+{
+    //pobranie ilości znaków w polu tekstowym
+    DWORD length = GetWindowTextLength(handle);
+    //Alokacja pamięci dla znaków w polu tekstowym
+    LPSTR buf = (LPSTR) GlobalAlloc(GPTR, length);
+    //Pobranie tekstu z okna i zapisanie go w buforze
+    GetWindowText(hText, dane, length + 1 );
+}
 
 int WINAPI WinMain (HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -114,35 +122,33 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
 
-      hRadio1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk1" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 50, 300, 25, hWnd, (HMENU)ID_PRZYCISK1, hInstance, NULL);
-      hRadio2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk2" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 75, 300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk3" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 100,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk4" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 125,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk5" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 150,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk6" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 175,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk7" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 200,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio8 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk8" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 225,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio9 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " Przycisk9" , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 250,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio10 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk10", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 275,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio11 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk11", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 50 ,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio12 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk12", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 75 ,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio13 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk13", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 100,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio14 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk14", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 125,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio15 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk15", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 150,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio16 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk16", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 175,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio17 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk17", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 200,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio18 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk18", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 225,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio19 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk19", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 250,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio20 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " Przycisk20", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 275,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 50, 300, 25, hWnd, (HMENU)ID_PRZYCISK1, hInstance, NULL);
+      hRadio2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 75, 300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 100,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 125,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 150,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 175,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 200,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio8 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 225,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio9 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 250,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio10 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 275,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio11 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 50 ,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio12 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 75 ,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio13 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 100,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio14 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 125,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio15 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 150,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio16 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 175,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio17 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 200,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio18 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 225,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio19 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 250,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio20 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 275,300, 25, hWnd, NULL, hInstance, NULL);
  /*    hRadio = CreateWindowEx
      (WS_EX_CLIENTEDGE, "BUTTON"
       , "Ramka", WS_CHILD | WS_VISIBLE |  BS_GROUPBOX,
       5, 150 ,100, 30, hWnd, NULL, hInstance, NULL); */
         //tekstowe
-    hText = CreateWindowEx
-   (WS_EX_CLIENTEDGE, "EDIT"
-     , NULL, WS_CHILD | WS_VISIBLE |WS_BORDER,
-      5, 310,500, 25, hWnd, NULL, hInstance, NULL);
+      hText  = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", NULL, WS_CHILD | WS_VISIBLE |WS_BORDER, 5, 310,500, 25, hWnd, NULL, hInstance, NULL);
+      hText2 = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", NULL, WS_CHILD | WS_VISIBLE |WS_BORDER, 5, 360,500, 25, hWnd, NULL, hInstance, NULL);
  /*   hText = CreateWindowEx
     (WS_EX_CLIENTEDGE, "EDIT"
      , NULL, WS_CHILD | WS_VISIBLE |WS_BORDER |
@@ -164,6 +170,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
      hPrzycisk4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Masa"        , WS_CHILD | WS_VISIBLE, 305, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
      hPrzycisk5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Czas"        , WS_CHILD | WS_VISIBLE, 405, 10, 100, 30, hWnd, NULL, hInstance, NULL);
      hPrzycisk6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Informacja"  , WS_CHILD | WS_VISIBLE, 505, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Zatwierdz"  , WS_CHILD | WS_VISIBLE, 515, 310 ,100, 25, hWnd, NULL, hInstance, NULL);
   /*   hCombo = CreateWindowEx
         (WS_EX_CLIENTEDGE, "COMBOBOX"
      , "NULL", WS_CHILD | WS_VISIBLE |WS_BORDER |CBS_DROPDOWN,
@@ -194,9 +201,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
 
-LRESULT CALLBACK WndProc (HWND hwnd, UINT msg
-                              ,WPARAM wParam
-                              ,LPARAM lParam)
+LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 
    switch(msg)
@@ -471,6 +476,13 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg
                 nazwaaaa = "Gigabit [Gb]";
                 SetWindowText(hRadio20, nazwaaaa);
         }
+        if((HWND) lParam == hPrzycisk7)
+        {
+                poletekstowe;
+                SetWindowText(hText2, dane);
+
+        }
+
         break;
         //zamykanie okna
        case WM_CLOSE:
@@ -488,12 +500,4 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg
     return 0;
 }
 
-void funkcja (HWND handle)
-{
-    //pobranie ilości znaków w polu tekstowym
-    DWORD length = GetWindowTextLength(handle);
-    //Alokacja pamięci dla znaków w polu tekstowym
-    LPSTR buf = (LPSTR) GlobalAlloc(GPTR, length);
-    //Pobranie tekstu z okna i zapisanie go w buforze
-    GetWindowText(handle, buf, length + 1 );
-}
+
