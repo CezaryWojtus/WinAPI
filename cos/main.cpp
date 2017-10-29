@@ -1,12 +1,13 @@
 #include <windows.h>
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 LPSTR NazwaKlasy= "Klasa123";
 MSG Komunikat;
 
   LPCTSTR nazwaaaa = "botak";
-
-LPSTR dane;
+int sprintf;
+char* dane;
 
 #define ID_ODLEGLOSC 500
 #define ID_POWIERZCHNIA 501
@@ -76,16 +77,6 @@ HWND hCombo;
 //prototyp funkcji (dziwne rzeczy które musza być XD)
 LRESULT CALLBACK WndProc ( HWND hwnd, UINT msg,WPARAM wParam,LPARAM lParam);
 
-void poletekstowe (HWND handle)
-{
-    //pobranie ilości znaków w polu tekstowym
-    DWORD length = GetWindowTextLength(handle);
-    //Alokacja pamięci dla znaków w polu tekstowym
-    LPSTR buf = (LPSTR) GlobalAlloc(GPTR, length);
-    //Pobranie tekstu z okna i zapisanie go w buforze
-    GetWindowText(hText, dane, length + 1 );
-}
-
 int WINAPI WinMain (HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR lpCmdLine,
@@ -142,7 +133,8 @@ int WINAPI WinMain (HINSTANCE hInstance,
       hRadio18 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 225,300, 25, hWnd, NULL, hInstance, NULL);
       hRadio19 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 250,300, 25, hWnd, NULL, hInstance, NULL);
       hRadio20 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 275,300, 25, hWnd, NULL, hInstance, NULL);
- /*    hRadio = CreateWindowEx
+
+       /*    hRadio = CreateWindowEx
      (WS_EX_CLIENTEDGE, "BUTTON"
       , "Ramka", WS_CHILD | WS_VISIBLE |  BS_GROUPBOX,
       5, 150 ,100, 30, hWnd, NULL, hInstance, NULL); */
@@ -478,12 +470,23 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         }
         if((HWND) lParam == hPrzycisk7)
         {
-                poletekstowe;
-                SetWindowText(hText2, dane);
+                  //pobranie ilości znaków w polu tekstowym
+    DWORD length = GetWindowTextLength(hText);
+    //Alokacja pamięci dla znaków w polu tekstowym
+    dane = (char*) GlobalAlloc(GPTR, length);
+    //Pobranie tekstu z okna i zapisanie go w buforze
+    GetWindowText(hText, dane, length + 1 );
+    dane= "co kurwa ?" ;
+   /* int idane = (int)dane;
+    idane = idane;
+    char bufor [2000];
+    itoa(idane,bufor,2000);
+    dane = bufor;*/
+    SetWindowText(hText2,dane);
 
         }
-
         break;
+
         //zamykanie okna
        case WM_CLOSE:
         DestroyWindow(hwnd);
