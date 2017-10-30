@@ -476,12 +476,16 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     dane = (char*) GlobalAlloc(GPTR, length);
     //Pobranie tekstu z okna i zapisanie go w buforze
     GetWindowText(hText, dane, length + 1 );
-    dane= "co kurwa ?" ;
-   /* int idane = (int)dane;
+    int idane=0;
+    /*int idane = (int)dane;
     idane = idane;
     char bufor [2000];
     itoa(idane,bufor,2000);
     dane = bufor;*/
+    idane=atoi(dane);
+    idane = idane*100;
+
+    dane=itoa(idane, dane, 10); // 10 - decimal;
     SetWindowText(hText2,dane);
 
         }
