@@ -1,13 +1,18 @@
 #include <windows.h>
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
+
 using namespace std;
 LPSTR NazwaKlasy= "Klasa123";
 MSG Komunikat;
 
   LPCTSTR nazwaaaa = "botak";
-int sprintf;
 char* dane;
+int i=0;
+float a=0;
+float b=0;
+
 
 #define ID_ODLEGLOSC 500
 #define ID_POWIERZCHNIA 501
@@ -113,26 +118,26 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
 
-      hRadio1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 50, 300, 25, hWnd, (HMENU)ID_PRZYCISK1, hInstance, NULL);
-      hRadio2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 75, 300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 100,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 125,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 150,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 175,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 200,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio8 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 225,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio9 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 250,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio10 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,  5, 275,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio11 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 50 ,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio12 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 75 ,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio13 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 100,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio14 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 125,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio15 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 150,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio16 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 175,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio17 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 200,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio18 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 225,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio19 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 250,300, 25, hWnd, NULL, hInstance, NULL);
-      hRadio20 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " ", WS_CHILD | WS_VISIBLE |  BS_RADIOBUTTON,315, 275,300, 25, hWnd, NULL, hInstance, NULL);
+      hRadio1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON | WS_GROUP,  5, 50, 300, 25, hWnd, (HMENU)ID_PRZYCISK1, hInstance, NULL);
+      hRadio2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 75, 300, 25, hWnd, (HMENU)ID_PRZYCISK2, hInstance, NULL);
+      hRadio3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 100,300, 25, hWnd, (HMENU)ID_PRZYCISK3, hInstance, NULL);
+      hRadio4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 125,300, 25, hWnd, (HMENU)ID_PRZYCISK4, hInstance, NULL);
+      hRadio5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 150,300, 25, hWnd, (HMENU)ID_PRZYCISK5, hInstance, NULL);
+      hRadio6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 175,300, 25, hWnd, (HMENU)ID_PRZYCISK6, hInstance, NULL);
+      hRadio7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 200,300, 25, hWnd, (HMENU)ID_PRZYCISK7, hInstance, NULL);
+      hRadio8 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 225,300, 25, hWnd, (HMENU)ID_PRZYCISK8, hInstance, NULL);
+      hRadio9 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 250,300, 25, hWnd, (HMENU)ID_PRZYCISK9, hInstance, NULL);
+      hRadio10 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 275,300, 25, hWnd, (HMENU)ID_PRZYCISK10, hInstance, NULL);
+      hRadio11 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON| WS_GROUP ,315, 50 ,300, 25, hWnd, (HMENU)ID_PRZYCISK11, hInstance, NULL);
+      hRadio12 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 75 ,300, 25, hWnd, (HMENU)ID_PRZYCISK12, hInstance, NULL);
+      hRadio13 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 100,300, 25, hWnd, (HMENU)ID_PRZYCISK13, hInstance, NULL);
+      hRadio14 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 125,300, 25, hWnd, (HMENU)ID_PRZYCISK14, hInstance, NULL);
+      hRadio15 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 150,300, 25, hWnd, (HMENU)ID_PRZYCISK15, hInstance, NULL);
+      hRadio16 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 175,300, 25, hWnd, (HMENU)ID_PRZYCISK16, hInstance, NULL);
+      hRadio17 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 200,300, 25, hWnd, (HMENU)ID_PRZYCISK17, hInstance, NULL);
+      hRadio18 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 225,300, 25, hWnd, (HMENU)ID_PRZYCISK18, hInstance, NULL);
+      hRadio19 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 250,300, 25, hWnd, (HMENU)ID_PRZYCISK19, hInstance, NULL);
+      hRadio20 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 275,300, 25, hWnd, (HMENU)ID_PRZYCISK20, hInstance, NULL);
 
        /*    hRadio = CreateWindowEx
      (WS_EX_CLIENTEDGE, "BUTTON"
@@ -202,7 +207,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
            //dodatkowe wyskakujące okienko
             if((HWND) lParam == hPrzycisk1)
         {
-                nazwaaaa = "Mikrometr ";
+                nazwaaaa = "Mikrometr [um]";
                 SetWindowText(hRadio1, nazwaaaa);
                 nazwaaaa = "Milimetr [mm]";
                 SetWindowText(hRadio2, nazwaaaa);
@@ -223,7 +228,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 nazwaaaa = "Mila Morska [Mm]";
                 SetWindowText(hRadio10, nazwaaaa);
 
-                nazwaaaa = "Mikrometr ";
+                nazwaaaa = "Mikrometr [um]";
                 SetWindowText(hRadio11, nazwaaaa);
                 nazwaaaa = "Milimetr [mm]";
                 SetWindowText(hRadio12, nazwaaaa);
@@ -243,7 +248,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio19, nazwaaaa);
                 nazwaaaa = "Mila Morska [Mm]";
                 SetWindowText(hRadio20, nazwaaaa);
-                //MessageBox(hwnd, "tekst wyskakujacego okna" , "NazwaOkna", MB_OK);
+                i=1;
         }
             if((HWND) lParam == hPrzycisk2)
         {
@@ -288,7 +293,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio19, nazwaaaa);
                 nazwaaaa = " ";
                 SetWindowText(hRadio20, nazwaaaa);
-                //MessageBox(hwnd, "tekst wyskakujacego okna" , "NazwaOkna", MB_OK);
+                i=2;
         }
             if((HWND) lParam == hPrzycisk3)
         {
@@ -333,7 +338,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio19, nazwaaaa);
                 nazwaaaa = "Uncja amerykanska [oz US]";
                 SetWindowText(hRadio20, nazwaaaa);
-                //MessageBox(hwnd, "tekst wyskakujacego okna" , "NazwaOkna", MB_OK);
+                i=3;
         }
             if((HWND) lParam == hPrzycisk4)
         {
@@ -378,6 +383,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio19, nazwaaaa);
                 nazwaaaa = "Gran [gr]";
                 SetWindowText(hRadio20, nazwaaaa);
+                i=4;
         }
             if((HWND) lParam == hPrzycisk5)
         {
@@ -422,6 +428,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio19, nazwaaaa);
                 nazwaaaa = "Tysiaclecie";
                 SetWindowText(hRadio20, nazwaaaa);
+                i=5;
 
         }
             if((HWND) lParam == hPrzycisk6)
@@ -467,6 +474,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio19, nazwaaaa);
                 nazwaaaa = "Gigabit [Gb]";
                 SetWindowText(hRadio20, nazwaaaa);
+                i=6;
         }
         if((HWND) lParam == hPrzycisk7)
         {
@@ -476,16 +484,44 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     dane = (char*) GlobalAlloc(GPTR, length);
     //Pobranie tekstu z okna i zapisanie go w buforze
     GetWindowText(hText, dane, length + 1 );
-    int idane=0;
-    /*int idane = (int)dane;
-    idane = idane;
-    char bufor [2000];
-    itoa(idane,bufor,2000);
-    dane = bufor;*/
-    idane=atoi(dane);
-    idane = idane*100;
+    float idane=0;
+    idane=atof(dane);
+    a=0;
+    b=0;
+        //odległość i=1
+        if(i==1)
+        {
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED )) {a=0,000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED )) {a=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED )) {a=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED )) {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED )) {a=1000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED )) {a=0.0253995;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED )) {a=0.3047940;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED )) {a=0.9144;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED )) {a=1609;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=1852;}
 
-    dane=itoa(idane, dane, 10); // 10 - decimal;
+
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0,000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK15 ) == BST_CHECKED )) {b=1000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK16 ) == BST_CHECKED )) {b=0.0253995;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK17 ) == BST_CHECKED )) {b=0.3047940;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=0.9144;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=1609;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=1852;}
+
+
+        }
+
+    idane= (idane*a)/b;
+
+    //dane=sprintf (buf,"%f", idane);
+    sprintf(dane, "%f", idane);
+    //dane=itoa(idane, dane, 10); // 10 - decimal;
     SetWindowText(hText2,dane);
 
         }
