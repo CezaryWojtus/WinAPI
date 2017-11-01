@@ -362,8 +362,8 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     GetWindowText(hText, dane, length + 1 );
     float idane=0;
     idane=atof(dane);
-    a=0;
-    b=0;
+    a=1;
+    b=1;
         //odległość i=1, i=2 powierzchnia, i=3 objętość, i-4 masa, i=5 czas, i=6 informacja
         if(i==1)
         {
