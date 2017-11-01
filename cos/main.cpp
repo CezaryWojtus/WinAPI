@@ -8,7 +8,7 @@ LPSTR NazwaKlasy= "Klasa123";
 MSG Komunikat;
 
   LPCTSTR nazwaaaa = "botak";
-char* dane;
+char* dane="0";
 int i=0;
 float a=0;
 float b=0;
@@ -87,10 +87,6 @@ int WINAPI WinMain (HINSTANCE hInstance,
                      LPSTR lpCmdLine,
                      int nCmdShow)
 {
-    //okno do linijki 113 !
-    // int i= MessageBox(NULL, "Hello World", "Hello World", MB_OKCANCEL);
-
-
     WNDCLASS wc;
     wc.style = 0;
     wc.lpfnWndProc = WndProc;
@@ -161,12 +157,12 @@ int WINAPI WinMain (HINSTANCE hInstance,
                   (LPARAM)"Element 1");
 */
 
-     hPrzycisk1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Odleglosc"   , WS_CHILD | WS_VISIBLE,   5, 10, 100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Powierzchnia", WS_CHILD | WS_VISIBLE, 105, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Objetosc"    , WS_CHILD | WS_VISIBLE, 205, 10, 100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Masa"        , WS_CHILD | WS_VISIBLE, 305, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Czas"        , WS_CHILD | WS_VISIBLE, 405, 10, 100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Informacja"  , WS_CHILD | WS_VISIBLE, 505, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Odleglosci"   , WS_CHILD | WS_VISIBLE,   5, 10, 100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Powierzchni", WS_CHILD | WS_VISIBLE, 105, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Objetosci"    , WS_CHILD | WS_VISIBLE, 205, 10, 100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Masy"        , WS_CHILD | WS_VISIBLE, 305, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Czau"        , WS_CHILD | WS_VISIBLE, 405, 10, 100, 30, hWnd, NULL, hInstance, NULL);
+     hPrzycisk6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Informacji"  , WS_CHILD | WS_VISIBLE, 505, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
      hPrzycisk7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Zatwierdz"  , WS_CHILD | WS_VISIBLE, 515, 310 ,100, 25, hWnd, NULL, hInstance, NULL);
   /*   hCombo = CreateWindowEx
         (WS_EX_CLIENTEDGE, "COMBOBOX"
@@ -256,42 +252,42 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio1, nazwaaaa);
                 nazwaaaa = "Centymetr kwadratowy [cm2]";
                 SetWindowText(hRadio2, nazwaaaa);
-                nazwaaaa = "Metr kwadratowy [m2]";
+                nazwaaaa = "Decymetr kwadratowy [dm2]";
                 SetWindowText(hRadio3, nazwaaaa);
-                nazwaaaa = "Kilometr kwadratowy [km2]";
+                nazwaaaa = "Metr kwadratowy [m2]";
                 SetWindowText(hRadio4, nazwaaaa);
-                nazwaaaa = "Ar [a]";
+                nazwaaaa = "Kilometr kwadratowy [km2]";
                 SetWindowText(hRadio5, nazwaaaa);
-                nazwaaaa = "Hektar [ha]";
+                nazwaaaa = "Ar [a]";
                 SetWindowText(hRadio6, nazwaaaa);
-                nazwaaaa = "Akr [akr]";
+                nazwaaaa = "Hektar [ha]";
                 SetWindowText(hRadio7, nazwaaaa);
-                nazwaaaa = "Jard Kwadratowy[yr2]";
+                nazwaaaa = "Akr [akr]";
                 SetWindowText(hRadio8, nazwaaaa);
-                nazwaaaa = "Stopa Kwadratowa[ft2]";
+                nazwaaaa = "Jard Kwadratowy [yr2]";
                 SetWindowText(hRadio9, nazwaaaa);
-                nazwaaaa = " ";
+                nazwaaaa = "Stopa Kwadratowa [ft2] ";
                 SetWindowText(hRadio10, nazwaaaa);
 
                 nazwaaaa = "Milimetr kwadratowy [mm2]";
                 SetWindowText(hRadio11, nazwaaaa);
                 nazwaaaa = "Centymetr kwadratowy [cm2]";
                 SetWindowText(hRadio12, nazwaaaa);
-                nazwaaaa = "Metr kwadratowy [m2]";
+                nazwaaaa = "Decymetr kwadratowy [dm2]";
                 SetWindowText(hRadio13, nazwaaaa);
-                nazwaaaa = "Kilometr kwadratowy [km2]";
+                nazwaaaa = "Metr kwadratowy [m2]";
                 SetWindowText(hRadio14, nazwaaaa);
-                nazwaaaa = "Ar [a]";
+                nazwaaaa = "Kilometr kwadratowy [km2]";
                 SetWindowText(hRadio15, nazwaaaa);
-                nazwaaaa = "Hektar [ha]";
+                nazwaaaa = "Ar [a]";
                 SetWindowText(hRadio16, nazwaaaa);
-                nazwaaaa = "Akr [akr]";
+                nazwaaaa = "Hektar [ha]";
                 SetWindowText(hRadio17, nazwaaaa);
-                nazwaaaa = "Jard Kwadratowy [yr2]";
+                nazwaaaa = "Akr [akr]";
                 SetWindowText(hRadio18, nazwaaaa);
-                nazwaaaa = "Stopa Kwadratowa [ft2]";
+                nazwaaaa = "Jard Kwadratowy [yr2]";
                 SetWindowText(hRadio19, nazwaaaa);
-                nazwaaaa = " ";
+                nazwaaaa = "Stopa Kwadratowa [ft2] ";
                 SetWindowText(hRadio20, nazwaaaa);
                 i=2;
         }
@@ -478,7 +474,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         }
         if((HWND) lParam == hPrzycisk7)
         {
-                  //pobranie ilości znaków w polu tekstowym
+    //pobranie ilości znaków w polu tekstowym
     DWORD length = GetWindowTextLength(hText);
     //Alokacja pamięci dla znaków w polu tekstowym
     dane = (char*) GlobalAlloc(GPTR, length);
@@ -488,20 +484,19 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     idane=atof(dane);
     a=0;
     b=0;
-        //odległość i=1
+        //odległość i=1, i=2 powierzchnia, i=3 objętość, i-4 masa, i=5 czas, i=6 informacja
         if(i==1)
         {
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED )) {a=0,000001;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED )) {a=0.001;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED )) {a=0.01;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED )) {a=1;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED )) {a=1000;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED )) {a=0.0253995;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED )) {a=0.3047940;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED )) {a=0.9144;}
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED )) {a=1609;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0,000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED ))  {a=1000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED ))  {a=0.0253995;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED ))  {a=0.3047940;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED ))  {a=0.9144;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=1609;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=1852;}
-
 
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0,000001;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=0.001;}
@@ -513,15 +508,130 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=0.9144;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=1609;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=1852;}
-
-
         }
+        if(i==2)
+        {
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0.000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=0.0001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED ))  {a=1000000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED ))  {a=100;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED ))  {a=10000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED ))  {a=4046.8564224011;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=0.83612736;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=0.09290304;}
 
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0.000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=0.0001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK15 ) == BST_CHECKED )) {b=1000000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK16 ) == BST_CHECKED )) {b=100;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK17 ) == BST_CHECKED )) {b=10000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=4046.8564224011;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=0.83612736;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=0.09290304;}
+        }
+        if(i==3)
+        {
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0.000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=0.00001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED ))  {a=0.00454609;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED ))  {a=0.00056826125 ;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED ))  {a=0.0000284130625;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED ))  {a=0.0037854118;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=0.0004731765;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=0.00002957353;}
+
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0.000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=0.00001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK15 ) == BST_CHECKED )) {b=0.00454609;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK16 ) == BST_CHECKED )) {b=0.00056826125 ;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK17 ) == BST_CHECKED )) {b=0.0000284130625;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=0.0037854118;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=0.0004731765;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=0.00002957353;}
+        }
+        if(i==4)
+        {
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=1000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED ))  {a=0.0017718451953125;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED ))  {a=50.8025;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED ))  {a=6.3502990038;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED ))  {a=0.4535927037;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=0.0283495231;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=0.0000647989503;}
+
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=0.01;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=1000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK15 ) == BST_CHECKED )) {b=0.0017718451953125;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK16 ) == BST_CHECKED )) {b=50.8025;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK17 ) == BST_CHECKED )) {b=6.3502990038;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=0.4535927037;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=0.0283495231;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=0.0000647989503;}
+        }
+        if(i==5)
+        {
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=60;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=3600;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED ))  {a=86400;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED ))  {a=604800;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED ))  {a=2592000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED ))  {a=31557600;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=315576000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=31557600000;}
+
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0.001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=60;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=3600;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK15 ) == BST_CHECKED )) {b=86400;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK16 ) == BST_CHECKED )) {b=604800;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK17 ) == BST_CHECKED )) {b=2592000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=31557600;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=315576000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=31557600000;}
+        }
+        if(i==6)
+        {
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0.125;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=1024;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=1048576;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK5 ) == BST_CHECKED ))  {a=1073741824;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK6 ) == BST_CHECKED ))  {a=1099511531400;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK7 ) == BST_CHECKED ))  {a=1125899755300000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK8 ) == BST_CHECKED ))  {a=128;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=131072;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=134217728;}
+
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0.125;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=1;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=1024;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=1048576;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK15 ) == BST_CHECKED )) {b=1073741824;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK16 ) == BST_CHECKED )) {b=1099511531400;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK17 ) == BST_CHECKED )) {b=1125899755300000;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK18 ) == BST_CHECKED )) {b=128;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=131072;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=134217728;}
+        }
     idane= (idane*a)/b;
-
-    //dane=sprintf (buf,"%f", idane);
     sprintf(dane, "%f", idane);
-    //dane=itoa(idane, dane, 10); // 10 - decimal;
+    if(i==0){dane="Nie wybrales kategorii";}
     SetWindowText(hText2,dane);
 
         }
