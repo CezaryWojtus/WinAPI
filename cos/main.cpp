@@ -3,23 +3,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-using namespace std;
-LPSTR NazwaKlasy= "Klasa123";
+LPSTR NazwaKlasy= "KonwerterJednostek";
 MSG Komunikat;
 
-  LPCTSTR nazwaaaa = "botak";
 char* dane="0";
 int i=0;
 float a=0;
 float b=0;
 
-
-#define ID_ODLEGLOSC 500
-#define ID_POWIERZCHNIA 501
-#define ID_OBJETOSC 502
-#define ID_MASA 503
-#define ID_CZAS 504
-#define ID_INFORMACJA 505
 #define ID_PRZYCISK1 506
 #define ID_PRZYCISK2 507
 #define ID_PRZYCISK3 508
@@ -108,11 +99,9 @@ int WINAPI WinMain (HINSTANCE hInstance,
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT,
         CW_USEDEFAULT,
-        1050, 550, //rozmiar okna dLugoSC, szerokosc
+        650, 435, //rozmiar okna dLugoSC, szerokosc
         NULL, NULL,
         hInstance, NULL);
-
-
 
       hRadio1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON | WS_GROUP,  5, 50, 300, 25, hWnd, (HMENU)ID_PRZYCISK1, hInstance, NULL);
       hRadio2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON" , " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,  5, 75, 300, 25, hWnd, (HMENU)ID_PRZYCISK2, hInstance, NULL);
@@ -135,52 +124,16 @@ int WINAPI WinMain (HINSTANCE hInstance,
       hRadio19 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 250,300, 25, hWnd, (HMENU)ID_PRZYCISK19, hInstance, NULL);
       hRadio20 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", " " , WS_CHILD | WS_VISIBLE |  BS_AUTORADIOBUTTON,315, 275,300, 25, hWnd, (HMENU)ID_PRZYCISK20, hInstance, NULL);
 
-       /*    hRadio = CreateWindowEx
-     (WS_EX_CLIENTEDGE, "BUTTON"
-      , "Ramka", WS_CHILD | WS_VISIBLE |  BS_GROUPBOX,
-      5, 150 ,100, 30, hWnd, NULL, hInstance, NULL); */
-        //tekstowe
       hText  = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", NULL, WS_CHILD | WS_VISIBLE |WS_BORDER, 5, 310,500, 25, hWnd, NULL, hInstance, NULL);
       hText2 = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", NULL, WS_CHILD | WS_VISIBLE |WS_BORDER, 5, 360,500, 25, hWnd, NULL, hInstance, NULL);
- /*   hText = CreateWindowEx
-    (WS_EX_CLIENTEDGE, "EDIT"
-     , NULL, WS_CHILD | WS_VISIBLE |WS_BORDER |
-        WS_VSCROLL | ES_MULTILINE | ES_AUTOVSCROLL,
-      5, 250, 150, 150, hWnd, NULL, hInstance, NULL); */
-        //Listy
- /*    hList = CreateWindowEx
-        (WS_EX_CLIENTEDGE, "LISTBOX"
-     , "NULL", WS_CHILD | WS_VISIBLE |WS_BORDER ,
-      5, 5, 150, 150, hWnd, NULL, hInstance, NULL);
 
-      SendMessage(hList, LB_ADDSTRING, 0,
-                  (LPARAM)"Element 1");
-*/
-
-     hPrzycisk1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Odleglosci"   , WS_CHILD | WS_VISIBLE,   5, 10, 100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Powierzchni", WS_CHILD | WS_VISIBLE, 105, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Objetosci"    , WS_CHILD | WS_VISIBLE, 205, 10, 100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Masy"        , WS_CHILD | WS_VISIBLE, 305, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Czau"        , WS_CHILD | WS_VISIBLE, 405, 10, 100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Informacji"  , WS_CHILD | WS_VISIBLE, 505, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
-     hPrzycisk7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Zatwierdz"  , WS_CHILD | WS_VISIBLE, 515, 310 ,100, 25, hWnd, NULL, hInstance, NULL);
-  /*   hCombo = CreateWindowEx
-        (WS_EX_CLIENTEDGE, "COMBOBOX"
-     , "NULL", WS_CHILD | WS_VISIBLE |WS_BORDER |CBS_DROPDOWN,
-      5, 10, 150, 150, hWnd, NULL, hInstance, NULL);
-      SendMessage(hCombo, CB_ADDSTRING, 0,
-                  (LPARAM)"Odleglosci");
-      SendMessage(hCombo, CB_ADDSTRING, 1,
-                  (LPARAM)"Powierzchni");
-      SendMessage(hCombo, CB_ADDSTRING, 2,
-                  (LPARAM)"Objetosci");
-      SendMessage(hCombo, CB_ADDSTRING, 3,
-                  (LPARAM)"Masy");
-      SendMessage(hCombo, CB_ADDSTRING, 4,
-                  (LPARAM)"Czasu");
-      SendMessage(hCombo, CB_ADDSTRING, 5,
-                  (LPARAM)"Informacji");
-*/
+      hPrzycisk1 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Odleglosci"   , WS_CHILD | WS_VISIBLE,   5, 10, 100, 30, hWnd, NULL, hInstance, NULL);
+      hPrzycisk2 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Powierzchni", WS_CHILD | WS_VISIBLE, 105, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+      hPrzycisk3 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Objetosci"    , WS_CHILD | WS_VISIBLE, 205, 10, 100, 30, hWnd, NULL, hInstance, NULL);
+      hPrzycisk4 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Masy"        , WS_CHILD | WS_VISIBLE, 305, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+      hPrzycisk5 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Czau"        , WS_CHILD | WS_VISIBLE, 405, 10, 100, 30, hWnd, NULL, hInstance, NULL);
+      hPrzycisk6 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Informacji"  , WS_CHILD | WS_VISIBLE, 505, 10 ,100, 30, hWnd, NULL, hInstance, NULL);
+      hPrzycisk7 = CreateWindowEx(WS_EX_CLIENTEDGE, "BUTTON", "Zatwierdz"  , WS_CHILD | WS_VISIBLE, 515, 310 ,100, 75, hWnd, NULL, hInstance, NULL);
 
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
@@ -191,8 +144,6 @@ int WINAPI WinMain (HINSTANCE hInstance,
      }
      return Komunikat.wParam;
 }
-
-
 
 LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -362,12 +313,12 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     GetWindowText(hText, dane, length + 1 );
     float idane=0;
     idane=atof(dane);
-    a=1;
-    b=1;
+    a=2;
+    b=2;
         //odległość i=1, i=2 powierzchnia, i=3 objętość, i-4 masa, i=5 czas, i=6 informacja
         if(i==1)
         {
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0,000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK1 ) == BST_CHECKED ))  {a=0.000001;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK2 ) == BST_CHECKED ))  {a=0.001;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK3 ) == BST_CHECKED ))  {a=0.01;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK4 ) == BST_CHECKED ))  {a=1;}
@@ -378,7 +329,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK9 ) == BST_CHECKED ))  {a=1609;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK10 ) == BST_CHECKED )) {a=1852;}
 
-         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0,000001;}
+         if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK11 ) == BST_CHECKED )) {b=0.000001;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK12 ) == BST_CHECKED )) {b=0.001;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK13 ) == BST_CHECKED )) {b=0.01;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK14 ) == BST_CHECKED )) {b=1;}
@@ -511,7 +462,11 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         }
     idane= (idane*a)/b;
     sprintf(dane, "%f", idane);
-    if(i==0){dane="Nie wybrales kategorii";}
+    if(i==0){dane="Nie wybrales kategorii";
+        a=0;
+        b=0;
+    }
+    if(a==2 or b==2) {dane="Nie zaznaczyles zadnego pola";}
     SetWindowText(hText2,dane);
 
         }
