@@ -303,18 +303,21 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                 SetWindowText(hRadio20, "Gigabit [Gb]");
                 i=6;
         }
+
         if((HWND) lParam == hPrzycisk7)
         {
     //pobranie ilości znaków w polu tekstowym
-    DWORD length = GetWindowTextLength(hText);
+        DWORD length = GetWindowTextLength(hText);
     //Alokacja pamięci dla znaków w polu tekstowym
-    dane = (char*) GlobalAlloc(GPTR, length);
+        dane = (char*) GlobalAlloc(GPTR, length);
     //Pobranie tekstu z okna i zapisanie go w buforze
-    GetWindowText(hText, dane, length + 1 );
-    float idane=0;
-    idane=atof(dane);
-    a=2;
-    b=2;
+        GetWindowText(hText, dane, length + 1 );
+
+        float idane=0;
+        idane=atof(dane);
+        a=2;
+        b=2;
+
         //odległość i=1, i=2 powierzchnia, i=3 objętość, i-4 masa, i=5 czas, i=6 informacja
         if(i==1)
         {
@@ -460,14 +463,17 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK19 ) == BST_CHECKED )) {b=131072;}
          if (BOOL bChecked =( IsDlgButtonChecked( hwnd, ID_PRZYCISK20 ) == BST_CHECKED )) {b=134217728;}
         }
-    idane= (idane*a)/b;
-    sprintf(dane, "%f", idane);
-    if(i==0){dane="Nie wybrales kategorii";
+
+        idane= (idane*a)/b;
+        sprintf(dane, "%f", idane);
+
+        if(i==0){dane="Nie wybrales kategorii";
         a=0;
         b=0;
-    }
-    if(a==2 or b==2) {dane="Nie zaznaczyles zadnego pola";}
-    SetWindowText(hText2,dane);
+        }
+
+        if(a==2 or b==2) {dane="Nie zaznaczyles zadnego pola";}
+        SetWindowText(hText2,dane);
 
         }
         break;
@@ -487,5 +493,3 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
     return 0;
 }
-
-
